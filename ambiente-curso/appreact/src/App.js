@@ -15,11 +15,16 @@ const App = () => {
     rodas: '4',
   };
 
+  const estiloP = {
+    color: 'blue',
+    fontSize: '2rem',
+  };
+
   return (
     <>
       {titulo}
       <p>{mostrarNome()}</p>
-      <p>{new Date().getFullYear()}</p>
+      <p style={estiloP}>{new Date().getFullYear()}</p>
       <p>{carro.marca}</p>
       <p>{carro.rodas}</p>
       <p className={ativo ? 'ativo' : 'inativo'}>{(random * 1000) / 50}</p>
