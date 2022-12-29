@@ -1,34 +1,61 @@
 import React from 'react';
 
-const titulo = <h1>Esse é um titulo</h1>;
+const lucas = {
+  cliente: 'Lucas',
+  idade: 27,
+  compras: [
+    { nome: 'Notebook', preco: 'R$ 2500' },
+    { nome: 'Geladeira', preco: 'R$ 3000' },
+    { nome: 'Smartphone', preco: 'R$ 1500' },
+  ],
+  ativa: true,
+};
+const thamires = {
+  cliente: 'Thamires',
+  idade: 31,
+  compras: [
+    { nome: 'Notebook', preco: 'R$ 2500' },
+    { nome: 'Geladeira', preco: 'R$ 3000' },
+    { nome: 'Smartphone', preco: 'R$ 1500' },
+    { nome: 'Guitarra', preco: 'R$ 3500' },
+  ],
+  ativa: false,
+};
 
 const App = () => {
-  const random = Math.random();
-  const ativo = false;
+  const dados = lucas;
+  const { compras } = dados;
+  const precos = compras.map((compra) => {
+    return compra.preco.replace('R$ ', '');
+  });
 
-  function mostrarNome() {
-    return 'Lucas';
-  }
+  const precosTotal = precos.map((item) => {
+    return parseInt(item, 10)
+  })
 
-  const carro = {
-    marca: 'Ford',
-    rodas: '4',
-  };
-
-  const estiloP = {
-    color: 'blue',
-    fontSize: '2rem',
-  };
+  const total = precosTotal.reduce((acc, preco) => {
+    return acc + preco;
+  });
 
   return (
-    <>
-      {titulo}
-      <p>{mostrarNome()}</p>
-      <p style={estiloP}>{new Date().getFullYear()}</p>
-      <p>{carro.marca}</p>
-      <p>{carro.rodas}</p>
-      <p className={ativo ? 'ativo' : 'inativo'}>{(random * 1000) / 50}</p>
-    </>
+    <div>
+      <p>
+        <strong>Nome: </strong>
+        {dados.cliente}
+      </p>
+      <p>
+        <strong>Idade: </strong>
+        {dados.idade}
+      </p>
+      <p>
+        <strong>Situação: </strong>
+        <span>{dados.ativa ? 'Ativa' : 'Inativa'}</span>
+      </p>
+      <p>
+        <strong>Total gasto: </strong>
+        R$: {total}
+      </p>
+    </div>
   );
 };
 
