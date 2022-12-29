@@ -1,5 +1,9 @@
 import React from 'react';
 
+
+//Desafio do curso de React
+//mostrar na tela nome, idade, situação (se ativa, verde, senão, vermelho) e total gasto
+//(caso maior que 10000 mostrar a frase 'gastando muito')
 const lucas = {
   cliente: 'Lucas',
   idade: 27,
