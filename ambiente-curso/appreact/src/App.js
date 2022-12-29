@@ -23,7 +23,7 @@ const thamires = {
 };
 
 const App = () => {
-  const dados = lucas;
+  const dados = thamires;
   const { compras } = dados;
   const precos = compras.map((compra) => {
     return compra.preco.replace('R$ ', '');
@@ -37,6 +37,7 @@ const App = () => {
     return acc + preco;
   });
 
+
   return (
     <div>
       <p>
@@ -49,12 +50,13 @@ const App = () => {
       </p>
       <p>
         <strong>Situação: </strong>
-        <span>{dados.ativa ? 'Ativa' : 'Inativa'}</span>
+        <span style={{color: dados.ativa ? "green" : "red"}}>{dados.ativa ? 'Ativa' : 'Inativa'}</span>
       </p>
       <p>
         <strong>Total gasto: </strong>
         R$: {total}
       </p>
+      <p>{total > 10000 && "Você está gastando muito"}</p>
     </div>
   );
 };
