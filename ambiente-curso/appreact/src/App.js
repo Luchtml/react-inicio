@@ -23,40 +23,27 @@ const thamires = {
 };
 
 const App = () => {
-  const dados = thamires;
-  const { compras } = dados;
-  const precos = compras.map((compra) => {
-    return compra.preco.replace('R$ ', '');
-  });
-
-  const precosTotal = precos.map((item) => {
-    return parseInt(item, 10)
-  })
-
-  const total = precosTotal.reduce((acc, preco) => {
-    return acc + preco;
-  });
-
+  const dados = lucas;
+  const total = dados.compras
+    .map((compra) => {
+      return Number(compra.preco.replace('R$ ', ''));
+    })
+    .reduce((acc, preco) => {
+      return acc + preco;
+    });
 
   return (
     <div>
+      <p>Nome: {dados.cliente}</p>
+      <p>Idade: {dados.idade}</p>
       <p>
-        <strong>Nome: </strong>
-        {dados.cliente}
+        Situação:{' '}
+        <span style={{ color: dados.ativa ? 'green' : 'red' }}>
+          {dados.ativa ? 'Ativa' : 'Inativa'}
+        </span>
       </p>
-      <p>
-        <strong>Idade: </strong>
-        {dados.idade}
-      </p>
-      <p>
-        <strong>Situação: </strong>
-        <span style={{color: dados.ativa ? "green" : "red"}}>{dados.ativa ? 'Ativa' : 'Inativa'}</span>
-      </p>
-      <p>
-        <strong>Total gasto: </strong>
-        R$: {total}
-      </p>
-      <p>{total > 10000 && "Você está gastando muito"}</p>
+      <p>Total gasto: R$: {total}</p>
+      {total > 10000 && <p>Você está gastando muito</p>}
     </div>
   );
 };
