@@ -30,7 +30,7 @@ const App = () => {
       {filtroProdutos.map(({ id, nome, preco, cores }) => (
         <div key={id}>
           <h1>{nome}</h1>
-          <p>{preco}</p>
+          <p>Preço: {preco}</p>
           <ul>
             {cores.map((cor) => (
               <li style={{ backgroundColor: cor, color: 'white' }} key={cor}>
