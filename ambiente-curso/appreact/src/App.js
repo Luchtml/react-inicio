@@ -1,26 +1,16 @@
 import React from 'react';
-import Footer from './Footer';
-import Form from './form/Form';
-import Header from './Header';
+
+const Titulo = (props) => {
+  return <h1 style={{color: props.cor}}>{props.texto}</h1>
+}
 
 const App = () => {
-  const Teste = () => {
-    const active = false;
-    if (active) {
-      return <p>Teste</p>;
-    } else {
-      return null
-    }
-  };
 
-  return (
-    <div>
-      <Header />
-      <Form />
-      <Footer />
-      <Teste />
-    </div>
-  );
+  return <div>
+    <Titulo cor="red" texto="Meu Titulo 1"/>
+    <Titulo cor="blue" texto="Meu Titulo 2"/>
+    <Titulo texto="Meu Titulo 3"/>
+  </div>
 };
 
 export default App;
