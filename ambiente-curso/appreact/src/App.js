@@ -1,24 +1,15 @@
-import React from 'react';
-import Header from './Header';
-import Home from './Home';
-import Produtos from './Produtos';
+import React from 'react'
 
 const App = () => {
+  let ativo = true
 
-  
-  const { pathname } = window.location
-  let Pagina;
-    if(pathname === "/produtos") {
-      Pagina = Produtos
-    } else {
-      Pagina = Home
-    }
-  
+  function handleClick() {
+    ativo = !ativo
+    console.log(ativo)
+  }
+  return (
+    <button onClick={handleClick}>{ ativo ? 'Ativo' : 'Inativo'}</button>
+  )
+}
 
-  return <section>
-    <Header />
-    <Pagina />
-  </section>
-};
-
-export default App;
+export default App

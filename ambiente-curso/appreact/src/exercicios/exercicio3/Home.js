@@ -1,5 +1,5 @@
-import React from 'react'
-import Titulo from './Titulo'
+import React from 'react';
+import Titulo from './Titulo';
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
       <Titulo text="Home" />
       <p>Essa é a home do site</p>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
