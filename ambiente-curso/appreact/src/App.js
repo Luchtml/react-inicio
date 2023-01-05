@@ -1,10 +1,23 @@
 import React from 'react';
-import Form from './Form/Form';
+import Header from './Header';
+import Home from './Home';
+import Produtos from './Produtos';
+import Titulo from './Titulo';
 
 const App = () => {
 
+  const Conteudo = () => {
+  const { pathname } = window.location
+    if(pathname === "/Produtos") {
+      return <Produtos />
+    } else {
+      return <Home />
+    }
+  }
+
   return <div>
-    <Form/>
+    <Header />
+    <Conteudo />
   </div>
 };
 
