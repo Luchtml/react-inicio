@@ -1,5 +1,6 @@
 import React from 'react';
 import Titulo from './Titulo';
+import Produto from './Produto';
 
 const Produtos = () => {
   const produtos = [
@@ -10,20 +11,9 @@ const Produtos = () => {
   return (
     <section>
       <Titulo text="Produtos" />
-
-      {produtos.map(({ nome, propriedades }) => {
-        return (
-          <div key={nome} style={{ border: '1px solid black', margin: '15px', padding: '20px', fontSize: '1.5rem' }}>
-            {nome}
-            <ul>
-              {propriedades.map((propriedade) => {
-                return <li key={propriedade}>{propriedade}</li>
-              })}
-            </ul>
-          </div>
-        );
+      {produtos.map((produto) => {
+       return <Produto key={produto.nome} {...produto}/>
       })}
-
     </section>
   );
 };
