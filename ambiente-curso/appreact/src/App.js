@@ -1,15 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 const App = () => {
-  let ativo = true
+  const [ativo, setAtivo] = React.useState(false);
+  const [dados, setDados] = React.useState({nome: 'Lucas', idade: '27'})
 
   function handleClick() {
-    ativo = !ativo
-    console.log(ativo)
+    setAtivo(!ativo)
+    setDados({...dados, faculdade: 'Não possui faculdade'})
   }
   return (
-    <button onClick={handleClick}>{ ativo ? 'Ativo' : 'Inativo'}</button>
-  )
-}
+    <div>
+      <p>{dados.nome}</p>
+      <p>{dados.idade}</p>
+      <p>{dados.faculdade}</p>
+      <button onClick={handleClick}>{ativo ? 'Ativo' : 'Inativo'}</button>
+    </div>
+    
+  );
+};
 
-export default App
+export default App;
