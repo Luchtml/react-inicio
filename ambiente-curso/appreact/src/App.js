@@ -12,16 +12,16 @@ mostre a mensagem carregando enquanto o fetch é realizado
 
 const App = () => {
   const [dados, setDados] = React.useState(null);
-  const [loading, setLoading] = React.useState(null)
+  const [loading, setLoading] = React.useState(null);
 
   async function handleClick(event) {
-    setLoading(true)
+    setLoading(true);
     const response = await fetch(
       `https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`,
     );
     const json = await response.json();
     setDados(json);
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
