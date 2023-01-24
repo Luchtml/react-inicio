@@ -1,13 +1,7 @@
-import React from 'react'
-import Produto from './Produto'
-import UserContext from './UserContext'
+import React from 'react';
 
 const App = () => {
-  return (
-    <UserContext.Provider value={{nome: 'Lucas'}}>
-      <Produto/>
-      </UserContext.Provider>
-  )
-}
+  return <div>App</div>;
+};
 
-export default App
+export default App;
